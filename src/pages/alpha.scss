@@ -1,0 +1,89 @@
+.alpha {
+  $green: #3a8a31;
+  $dark-green: #296323;
+  $black: #060606;
+  $white: #f9f9f9;
+  $light-gray: #e0e0e0;
+  $dark-gray: #808080;
+
+  $big-pad: 1.2rem;
+  $small-pad: 0.6rem;
+
+  position: relative;
+  min-height: 100%;
+
+  background-color: $light-gray;
+  color: $black;
+
+  // Components
+
+  & > header {
+    display: flex;
+    flex-direction: row;
+
+    padding: $small-pad;
+    background-color: $black;
+    color: $white;
+
+    .left, .right { flex-grow: 1; }
+    h1 { flex-grow: 0; margin: 0; }
+  }
+
+  & > nav {
+    position: sticky;
+    top: 0;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    border-bottom: 4px solid $green;
+    background-color: $black;
+    color: $white;
+
+    a {
+      display: block;
+      padding: $small-pad;
+
+      font-weight: bold;
+      text-decoration: none !important;
+      color: $white;
+      &.selected { background-color: $green; }
+      &:hover { background-color: $dark-green; }
+    }
+  }
+
+  & > main {
+    margin: 0 auto;
+    padding: $big-pad;
+    max-width: 46rem;
+
+    hr { border: 2px solid $dark-gray; }
+    h1 { text-align: center; }
+  }
+
+  & > footer {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
+    border-top: 0.25rem solid $green;
+    padding: $small-pad;
+
+    background-color: $black;
+    color: $white;
+    text-align: center;
+  }
+
+  // Generic elements
+
+  *:first-child { margin-top: 0 !important; }
+  *:last-child { margin-bottom: 0 !important; }
+
+  a {
+    color: $green;
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+}

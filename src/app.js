@@ -3,7 +3,7 @@ import { Route, Routes, useLocation, useNavigate } from "react-router-dom";
 import { FiMenu } from "react-icons/fi";
 
 import "./app.scss";
-import Index from "./pages";
+import AlphaLayout from "./pages/alpha";
 
 function App() {
   return (
@@ -11,7 +11,7 @@ function App() {
       <PageMenu />
       
       <Routes>
-        <Route index element={<Index />} />
+        <Route path="alpha/*" element={<AlphaLayout />} />
       </Routes>
     </div>
   );
@@ -23,7 +23,7 @@ function PageMenu() {
   return (
     <div className={isOpen ? "page-menu open" : "page-menu closed"}>
       <FiMenu className="menu-toggler" onClick={() => setIsOpen(!isOpen)} />
-      <PageButton to="/" label="Index" />
+      <PageButton to="/alpha" label="Layout α" />
     </div>
   );
 }
