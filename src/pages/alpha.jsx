@@ -49,7 +49,7 @@ function AlphaIndex() {
       <p>
         This layout is the same the layout of <a href="https://www.webbu.se/">webbu.se</a>.
         I'm part of the group that made that site, so I wanted to try and expand/modify it.
-        Though, I don't know what to add/change at the moment. I wan
+        Though, I don't know what to add/change at the moment.
       </p>
 
       <h1>Lorem Ipsum (1/2)</h1>
