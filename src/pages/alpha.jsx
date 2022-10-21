@@ -1,6 +1,15 @@
 import { Route, Routes, NavLink } from "react-router-dom";
+import { FiMoon } from "react-icons/fi";
 
 import "./alpha.scss";
+
+function IconButton({ Icon, onClick }) {
+  return (
+    <button className="icon-button" onClick={onClick}>
+      <Icon className="icon" />
+    </button>
+  )
+}
 
 function AlphaLayout() {
   return (
@@ -8,11 +17,14 @@ function AlphaLayout() {
       <header>
         <div className="left"></div>
         <h1>Layout α</h1>
-        <div className="right"></div>
+        <div className="right">
+          <IconButton Icon={FiMoon} onClick={() => alert("You clicked the dark theme button!")} />
+        </div>
       </header>
 
       <nav>
         <NavLink end to="." className={({ isActive }) => isActive ? "selected" : undefined}>Home</NavLink>
+        <NavLink end to="./services" className={({ isActive }) => isActive ? "selected" : undefined}>Services</NavLink>
         <NavLink end to="./events" className={({ isActive }) => isActive ? "selected" : undefined}>Events</NavLink>
       </nav>
 
@@ -32,11 +44,12 @@ function AlphaLayout() {
 function AlphaIndex() {
   return (
     <>
-      <h1>Expansion</h1>
+      <h1>About</h1>
       <hr />
       <p>
-        This layout is an expansion of the layout of <a href="https://www.webbu.se/">webbu.se</a>.
-        I didn't design that website, but I am part of the group that made it.
+        This layout is the same the layout of <a href="https://www.webbu.se/">webbu.se</a>.
+        I'm part of the group that made that site, so I wanted to try and expand/modify it.
+        Though, I don't know what to add/change at the moment. I wan
       </p>
 
       <h1>Lorem Ipsum (1/2)</h1>

@@ -25,8 +25,50 @@
     background-color: $black;
     color: $white;
 
-    .left, .right { flex-grow: 1; }
-    h1 { flex-grow: 0; margin: 0; }
+    .left {
+      display: flex;
+      flex-direction: row;
+      flex-grow: 1;
+      width: 0;
+    }
+
+    .right {
+      display: flex;
+      flex-direction: row-reverse;
+      flex-grow: 1;
+      width: 0;
+    }
+
+    h1 {
+      flex-grow: 0;
+      margin: 0;
+    }
+
+    .icon-button {
+      position: relative;
+
+      aspect-ratio: 1/1;
+      height: 100%;
+
+      border-radius: 0.5rem;
+      background-color: transparent;
+      color: $white;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $white;
+        color: $black;
+      }
+
+      .icon {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+
+        font-size: 1.5rem;
+      }
+    }
   }
 
   & > nav {
