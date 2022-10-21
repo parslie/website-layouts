@@ -4,6 +4,7 @@ import { FiMenu } from "react-icons/fi";
 
 import "./app.scss";
 import AlphaLayout from "./pages/alpha";
+import BetaLayout from "./pages/beta";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       
       <Routes>
         <Route path="alpha/*" element={<AlphaLayout />} />
+        <Route path="beta/*" element={<BetaLayout />} />
       </Routes>
     </div>
   );
@@ -24,6 +26,7 @@ function PageMenu() {
     <div className={isOpen ? "page-menu open" : "page-menu closed"}>
       <FiMenu className="menu-toggler" onClick={() => setIsOpen(!isOpen)} />
       <PageButton to="/alpha" label="Layout α" />
+      <PageButton to="/beta" label="Layout β" />
     </div>
   );
 }
