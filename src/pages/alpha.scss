@@ -1,131 +1,142 @@
-.alpha {
-  $green: #3a8a31;
-  $dark-green: #296323;
-  $black: #060606;
-  $white: #f9f9f9;
-  $light-gray: #e0e0e0;
-  $dark-gray: #808080;
+$small-pad: 0.8rem;
+$large-pad: 1.6rem;
+$accent-col: #2196f3;
+$dark-accent-col: #1565c0;
+$border-col: #aaaaaa;
+$app-bg-col: #eeeeee;
 
-  $big-pad: 1.2rem;
-  $small-pad: 0.6rem;
+@mixin left-layout {
+  grid-template-columns: 1fr max-content;
 
-  position: relative;
-  min-height: 100%;
-
-  background-color: $light-gray;
-  color: $black;
-
-  // Components
-
-  & > header {
-    display: flex;
-    flex-direction: row;
-
-    padding: $small-pad;
-    background-color: $black;
-    color: $white;
-
-    .left {
-      display: flex;
-      flex-direction: row;
-      flex-grow: 1;
-      width: 0;
-    }
-
-    .right {
-      display: flex;
-      flex-direction: row-reverse;
-      flex-grow: 1;
-      width: 0;
-    }
-
-    h1 {
-      flex-grow: 0;
-      margin: 0;
-    }
-
-    .icon-button {
-      position: relative;
-
-      aspect-ratio: 1/1;
-      height: 100%;
-
-      border-radius: 0.5rem;
-      background-color: transparent;
-      color: $white;
-      cursor: pointer;
-
-      &:hover {
-        background-color: $white;
-        color: $black;
-      }
-
-      .icon {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-
-        font-size: 1.5rem;
-      }
-    }
-  }
-
-  & > nav {
-    position: sticky;
-    top: 0;
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    border-bottom: 4px solid $green;
-    background-color: $black;
-    color: $white;
-
-    a {
-      display: block;
-      padding: $small-pad;
-
-      font-weight: bold;
-      text-decoration: none !important;
-      color: $white;
-      &.selected { background-color: $green; }
-      &:hover { background-color: $dark-green; }
-    }
+  & > aside {
+    grid-column: 2;
+    grid-row: 1;
   }
 
   & > main {
-    margin: 0 auto;
-    padding: $big-pad;
-    max-width: 46rem;
-
-    hr { border: 2px solid $dark-gray; }
-    h1 { text-align: center; }
+    grid-column: 1;
+    grid-row: 1;
+    border-width: 0 1px 1px 0;
   }
 
   & > footer {
-    position: fixed;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    grid-column: 1;
+    grid-row: 2;
+    padding-right: $small-pad;
+  }
+}
 
-    border-top: 0.25rem solid $green;
-    padding: $small-pad;
+@mixin right-layout {
+  grid-template-columns: max-content 1fr;
 
-    background-color: $black;
-    color: $white;
-    text-align: center;
+  & > aside {
+    grid-column: 1;
+    grid-row: 1;
   }
 
-  // Generic elements
+  & > main {
+    grid-column: 2;
+    grid-row: 1;
+    border-width: 0 0 1px 1px;
+  }
+
+  & > footer {
+    grid-column: 2;
+    grid-row: 2;
+    padding-left: $small-pad;
+  }
+}
+
+@mixin aside-elements {
+  a {
+    display: block;
+    margin: 0.2rem 0;
+  }
+}
+
+@mixin general-elements {
+  a {
+    color: $accent-col;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+    &:visited { color: $dark-accent-col; }
+  }
+}
+
+@mixin main-elements {
+  article {
+    margin: $large-pad 0;
+  }
+
+  h2 {
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid $border-col;
+  }
+
+  section {
+    border: 1px solid $border-col;
+    padding: $small-pad;
+    background-color: $app-bg-col;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    gap: $small-pad;
+
+    section {
+      display: flex;
+      flex-direction: row;
+      gap: $small-pad;
+      overflow-wrap: anywhere;
+
+      img { width: 8rem; }
+      .name, .email { margin: 0; }
+    }
+  }
+}
+
+.alpha {
+  display: grid;
+  grid-template-rows: max-content 1fr;
+  &.left { @include left-layout; }
+  &.right { @include right-layout; }
+
+  min-height: 100%;
+  background-color: $app-bg-col;
 
   *:first-child { margin-top: 0 !important; }
   *:last-child { margin-bottom: 0 !important; }
 
-  a {
-    color: $green;
-    text-decoration: none;
-    &:hover { text-decoration: underline; }
+  @include general-elements;
+
+  & > aside {
+    .header {
+      margin: 0;
+      padding: $large-pad $large-pad 0;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 0;
+      padding: $large-pad;
+    }
+
+    @include aside-elements;
+  }
+
+  & > main {
+    padding: $large-pad;
+
+    border-style: solid;
+    border-color: $border-col;
+    background-color: #ffffff;
+
+    @include main-elements;
+  }
+
+  & > footer {
+    padding: $large-pad;
   }
 }

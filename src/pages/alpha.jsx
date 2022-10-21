@@ -1,78 +1,112 @@
-import { Route, Routes, NavLink } from "react-router-dom";
-import { FiMoon } from "react-icons/fi";
+import React from "react";
+import { Link, Route, Routes } from "react-router-dom";
 
 import "./alpha.scss";
-
-function IconButton({ Icon, onClick }) {
-  return (
-    <button className="icon-button" onClick={onClick}>
-      <Icon className="icon" />
-    </button>
-  )
-}
+import johnSmithImage from "../images/johnsmith.jpg";
 
 function AlphaLayout() {
   return (
-    <div className="alpha">
-      <header>
-        <div className="left"></div>
-        <h1>Layout α</h1>
-        <div className="right">
-          <IconButton Icon={FiMoon} onClick={() => alert("You clicked the dark theme button!")} />
+    <div className="alpha right">
+      <aside>
+        <h1 className="header">Layout α</h1>
+        <div className="sticky">
+          <Link to=".">Home</Link>
+          <Link to="./contact">Contact</Link>
         </div>
-      </header>
-
-      <nav>
-        <NavLink end to="." className={({ isActive }) => isActive ? "selected" : undefined}>Home</NavLink>
-        <NavLink end to="./services" className={({ isActive }) => isActive ? "selected" : undefined}>Services</NavLink>
-        <NavLink end to="./events" className={({ isActive }) => isActive ? "selected" : undefined}>Events</NavLink>
-      </nav>
+      </aside>
 
       <main>
         <Routes>
-          <Route index element={<AlphaIndex />} />
+          <Route index element={<Index />} />
+          <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
 
       <footer>
-        <h4>Parslie {/*©*/} 2022 | <a href="mailto:viktor.holta@outlook.com">viktor.holta@outlook.com</a></h4>
+        <h5>Parslie © 2022 | <a href="mailto:viktor.holta@outlook.com">viktor.holta@outlook.com</a></h5>
       </footer>
     </div>
   );
 }
 
-function AlphaIndex() {
+function Index() {
   return (
-    <>
-      <h1>About</h1>
-      <hr />
-      <p>
-        This layout is the same the layout of <a href="https://www.webbu.se/">webbu.se</a>.
-        I'm part of the group that made that site, so I wanted to try and expand/modify it.
-        Though, I don't know what to add/change at the moment.
-      </p>
+    <React.Fragment>
+      <article>
+        <h2>About</h2>
+        <p>
+          This is a wikipedia-esque layout. 
+          I decided to create this, because it's different from every other site I've ever created.
+          The plan is to adapt the wikipedia layout for general purposes, instead of strictly informative purposes.
+        </p>
+      </article>
+      <article>
+        <h2>Lorem Ipsum (1/5)</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ullamcorper finibus imperdiet. Vestibulum vehicula, mauris id pulvinar tempor, justo felis mattis velit, a iaculis neque metus sit amet ipsum. Praesent egestas fermentum odio at placerat. Mauris egestas odio ut augue scelerisque aliquam. Morbi iaculis ullamcorper mi eget tempor. Nunc vel quam sem. In urna ligula, consequat et posuere non, lacinia vel justo. Sed nec sapien sapien. Ut elementum odio in est pretium, id tincidunt tellus tristique. Proin lobortis felis erat, eu egestas ex aliquet malesuada. Aenean et erat nec velit egestas feugiat. Donec at justo magna. Duis at feugiat nibh. Duis tincidunt sit amet ligula eu sagittis. 
+        </p>
+      </article>
+      <article>
+        <h2>Lorem Ipsum (2/5)</h2>
+        <p>
+          Proin in eleifend purus, consectetur eleifend lectus. In nec erat gravida, tincidunt justo non, iaculis ligula. Fusce erat arcu, porttitor quis ullamcorper porttitor, dignissim vitae elit. Praesent viverra lacinia lectus a elementum. Sed nisi augue, eleifend in volutpat quis, malesuada vel nunc. Morbi hendrerit at arcu vitae cursus. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc sed tortor scelerisque, lobortis mauris at, aliquam lectus. 
+        </p>
+      </article>
+      <article>
+        <h2>Lorem Ipsum (3/5)</h2>
+        <p>
+          Ut laoreet fermentum velit. Nulla ut dapibus nisi, venenatis bibendum nunc. Phasellus non placerat velit, ac eleifend nibh. Nunc aliquam massa vitae sapien luctus, ac pharetra libero cursus. Duis eu fringilla nisi. Ut cursus tristique finibus. Suspendisse convallis at enim eu suscipit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Maecenas turpis lectus, rhoncus sit amet ultricies vel, blandit non quam. Morbi vitae placerat nisi. Fusce et eleifend neque. Nullam scelerisque non sem ac dignissim. Aenean id odio et nulla tempus ullamcorper in vitae quam. Nunc placerat ex sed augue convallis, a gravida velit malesuada. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. 
+        </p>
+      </article>
+      <article>
+        <h2>Lorem Ipsum (4/5)</h2>
+        <p>
+          Sed gravida commodo est, vitae mollis ex blandit non. Phasellus laoreet luctus sagittis. Nulla at fringilla mauris, ac rutrum nulla. Nam sodales augue eros, nec dignissim lacus laoreet eu. Nunc rhoncus imperdiet urna eu tempor. Morbi sed vulputate velit, eu hendrerit tortor. Pellentesque non varius neque. Ut ac mi quis lacus faucibus volutpat. Mauris ultricies eleifend augue non vestibulum. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc facilisis ante lectus, egestas suscipit sem posuere in. Interdum et malesuada fames ac ante ipsum primis in faucibus. Maecenas dictum placerat accumsan. Integer a fringilla ex, sed placerat urna. 
+        </p>
+      </article>
+      <article>
+        <h2>Lorem Ipsum (5/5)</h2>
+        <p>
+          Aliquam erat volutpat. Ut et ligula eros. Mauris a pharetra tortor. Nam ultrices nulla orci, ut commodo quam pharetra non. Quisque rhoncus aliquet ultrices. Cras non posuere tellus. Nam pellentesque odio id erat scelerisque, mattis aliquet magna fermentum. Duis in fringilla justo. Etiam feugiat diam velit, vitae interdum lectus molestie a. Praesent id egestas nunc. Mauris porttitor ex elementum mattis fermentum. Ut consequat ligula sed nisi malesuada laoreet. 
+        </p>
+      </article>
+    </React.Fragment>
+  );
+}
 
-      <h1>Lorem Ipsum (1/2)</h1>
-      <hr />
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec facilisis lorem fringilla velit dictum, ac tincidunt lectus egestas. In hac habitasse platea dictumst. Suspendisse scelerisque eget dui vel semper. Aliquam condimentum augue eget odio sagittis, eget molestie nunc porttitor. Duis vitae lorem convallis, condimentum nisl vitae, elementum odio. Praesent eget venenatis enim. Mauris placerat, ex a rutrum molestie, nulla nulla tincidunt nisl, id mattis lectus elit sit amet risus. Cras mollis ex vitae sapien consequat, sed ullamcorper enim consectetur. Aliquam elementum pretium arcu ac finibus. Morbi quis velit quis lectus suscipit sollicitudin.
-      </p>
-      <p>
-        Mauris at pretium lectus. Integer bibendum cursus turpis non auctor. Duis tellus tortor, mattis sed finibus vel, lobortis non metus. Proin a porttitor mauris. Nulla tempus, erat porttitor imperdiet laoreet, leo sapien feugiat leo, ullamcorper interdum nibh augue sit amet purus. Etiam rutrum facilisis consectetur. Duis mollis fringilla nibh, at iaculis risus elementum id. Morbi sagittis, lacus nec hendrerit pulvinar, nisl nunc molestie velit, non facilisis turpis orci sed metus. Phasellus ipsum urna, pellentesque hendrerit vehicula ut, aliquam eu lectus. Mauris id porta ipsum. Nam consequat vestibulum arcu. Suspendisse vel nulla luctus nibh malesuada consequat. Nullam rhoncus leo erat, eget ultricies magna congue sit amet. Curabitur sagittis risus et augue consectetur lobortis. 
-      </p>
-
-      <h1>Lorem Ipsum (2/2)</h1>
-      <hr />
-      <p>
-        Morbi vitae venenatis est. Nullam ut mauris ac libero pulvinar aliquam in ultrices ipsum. Aliquam neque sapien, auctor ut feugiat nec, sagittis id arcu. Nunc imperdiet ut augue gravida gravida. Nullam pellentesque nisl vitae erat tincidunt, ut scelerisque nisl pellentesque. Nulla pretium mi luctus iaculis sagittis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Fusce condimentum porta leo vel hendrerit. Integer semper sollicitudin eros, ac consectetur orci malesuada ac.
-      </p>
-      <p>
-        In sagittis ipsum vehicula, tincidunt ante sit amet, tempus nunc. Cras pellentesque feugiat mollis. Nam id tempor arcu. Quisque malesuada leo purus, nec pretium lacus malesuada quis. Cras dapibus diam lectus, finibus consectetur nibh sagittis ac. Nam lorem arcu, porta eu ipsum at, euismod consectetur magna. Nunc at quam urna. Sed risus risus, convallis a elit ut, tincidunt fermentum arcu. Aenean quis felis a metus tempus sollicitudin nec vel orci. Aenean libero eros, venenatis tincidunt laoreet vitae, gravida at libero. Duis rutrum metus ut ullamcorper faucibus. Mauris iaculis ante at lorem efficitur, quis aliquet ligula vehicula. Praesent faucibus nunc neque, in egestas augue ultricies vitae.
-      </p>
-      <p>
-        Mauris posuere eu turpis non commodo. Vestibulum vel efficitur augue, porta posuere magna. Quisque pulvinar neque dui. Aliquam eu varius arcu, eu iaculis massa. In volutpat justo nec lectus ultricies rutrum. Praesent sed finibus magna, ut mattis metus. Aenean quis aliquam lectus, sed tempor massa. 
-      </p>
-    </>
+function Contact() {
+  return (
+    <React.Fragment>
+      <article>
+        <h2>Contact</h2>
+        <div className="contact-grid">
+          <section>
+            <img alt="John Smith" src={johnSmithImage} />
+            <div>
+              <h3 className="name">John Smith</h3>
+              <h5 className="email"><a>john.smith@gmail.com</a></h5>
+              <p>This is John Smith.</p>
+            </div>
+          </section>
+          <section>
+            <img alt="John Smith" src={johnSmithImage} />
+            <div>
+              <h3 className="name">John Smith</h3>
+              <h5 className="email"><a>also.john.smith@gmail.com</a></h5>
+              <p>This is also John Smith.</p>
+            </div>
+          </section>
+          <section>
+            <img alt="John Smith" src={johnSmithImage} />
+            <div>
+              <h3 className="name">John Smith</h3>
+              <h5 className="email"><a>also.john.smith.but.with.a.way.longer.address@gmail.com</a></h5>
+              <p>This is also John Smith.</p>
+            </div>
+          </section>
+        </div>
+      </article>
+    </React.Fragment>
   );
 }
 
