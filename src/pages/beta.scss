@@ -64,6 +64,17 @@ $app-bg-col: #eeeeee;
   }
 }
 
+@mixin main-elements {
+  article {
+    margin: $large-pad 0;
+  }
+
+  h2 {
+    padding-bottom: 0.2rem;
+    border-bottom: 1px solid $border-col;
+  }
+}
+
 .beta {
   display: grid;
   grid-template-rows: max-content 1fr;
@@ -99,6 +110,8 @@ $app-bg-col: #eeeeee;
     border-style: solid;
     border-color: $border-col;
     background-color: #ffffff;
+
+    @include main-elements;
   }
 
   & > footer {
