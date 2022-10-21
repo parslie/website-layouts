@@ -73,6 +73,28 @@ $app-bg-col: #eeeeee;
     padding-bottom: 0.2rem;
     border-bottom: 1px solid $border-col;
   }
+
+  section {
+    border: 1px solid $border-col;
+    padding: $small-pad;
+    background-color: $app-bg-col;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+    gap: $small-pad;
+
+    section {
+      display: flex;
+      flex-direction: row;
+      gap: $small-pad;
+      overflow-wrap: anywhere;
+
+      img { width: 8rem; }
+      .name, .email { margin: 0; }
+    }
+  }
 }
 
 .beta {

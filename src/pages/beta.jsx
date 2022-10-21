@@ -79,11 +79,32 @@ function Contact() {
     <React.Fragment>
       <article>
         <h2>Contact</h2>
-        <section className="contact-info">
-          <img alt="John Smith" src={johnSmithImage} />
-          <h3>John Smith</h3>
-          <p>asdasdasd</p>
-        </section>
+        <div className="contact-grid">
+          <section>
+            <img alt="John Smith" src={johnSmithImage} />
+            <div>
+              <h3 className="name">John Smith</h3>
+              <h5 className="email"><a>john.smith@gmail.com</a></h5>
+              <p>This is John Smith.</p>
+            </div>
+          </section>
+          <section>
+            <img alt="John Smith" src={johnSmithImage} />
+            <div>
+              <h3 className="name">John Smith</h3>
+              <h5 className="email"><a>also.john.smith@gmail.com</a></h5>
+              <p>This is also John Smith.</p>
+            </div>
+          </section>
+          <section>
+            <img alt="John Smith" src={johnSmithImage} />
+            <div>
+              <h3 className="name">John Smith</h3>
+              <h5 className="email"><a>also.john.smith.but.with.a.way.longer.address@gmail.com</a></h5>
+              <p>This is also John Smith.</p>
+            </div>
+          </section>
+        </div>
       </article>
     </React.Fragment>
   );
