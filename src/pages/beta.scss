@@ -1,10 +1,12 @@
 $small-pad: 0.8rem;
 $large-pad: 1.6rem;
+$accent-col: #f44336;
+$dark-accent-col: #c62828;
+$border-col: #aaaaaa;
+$app-bg-col: #eeeeee;
 
 @mixin left-layout {
-  display: grid;
   grid-template-columns: 1fr max-content;
-  grid-template-rows: 1fr max-content;
 
   & > aside {
     grid-column: 2;
@@ -25,9 +27,7 @@ $large-pad: 1.6rem;
 }
 
 @mixin right-layout {
-  display: grid;
   grid-template-columns: max-content 1fr;
-  grid-template-rows: 1fr max-content;
 
   & > aside {
     grid-column: 1;
@@ -47,26 +47,57 @@ $large-pad: 1.6rem;
   }
 }
 
+@mixin aside-elements {
+  a {
+    display: block;
+    margin: 0.2rem 0;
+  }
+}
+
+@mixin general-elements {
+  a {
+    color: $accent-col;
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+    &:visited { color: $dark-accent-col; }
+  }
+}
+
 .beta {
+  display: grid;
+  grid-template-rows: max-content 1fr;
   &.left { @include left-layout; }
   &.right { @include right-layout; }
 
   min-height: 100%;
-  overflow-x: auto;
-  background-color: #eeeeee;
+  background-color: $app-bg-col;
 
   *:first-child { margin-top: 0 !important; }
   *:last-child { margin-bottom: 0 !important; }
 
+  @include general-elements;
+
   & > aside {
-    padding: $large-pad;
+    .header {
+      margin: 0;
+      padding: $large-pad $large-pad 0;
+    }
+
+    .sticky {
+      position: sticky;
+      top: 0;
+      padding: $large-pad;
+    }
+
+    @include aside-elements;
   }
 
   & > main {
     padding: $large-pad;
 
     border-style: solid;
-    border-color: #aaaaaa;
+    border-color: $border-col;
     background-color: #ffffff;
   }
 
