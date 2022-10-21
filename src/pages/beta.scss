@@ -52,6 +52,7 @@ $large-pad: 1.6rem;
   &.right { @include right-layout; }
 
   min-height: 100%;
+  overflow-x: auto;
   background-color: #eeeeee;
 
   *:first-child { margin-top: 0 !important; }
