@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/website-layouts/static/css/main.bf43b55d.css",
+    "main.css": "/website-layouts/static/css/main.62d43934.css",
     "main.js": "/website-layouts/static/js/main.e469482f.js",
     "static/js/787.290568d9.chunk.js": "/website-layouts/static/js/787.290568d9.chunk.js",
     "static/media/johnsmith.jpg": "/website-layouts/static/media/johnsmith.d1840fb4755859e9dbe0.jpg",
     "index.html": "/website-layouts/index.html",
-    "main.bf43b55d.css.map": "/website-layouts/static/css/main.bf43b55d.css.map",
+    "main.62d43934.css.map": "/website-layouts/static/css/main.62d43934.css.map",
     "main.e469482f.js.map": "/website-layouts/static/js/main.e469482f.js.map",
     "787.290568d9.chunk.js.map": "/website-layouts/static/js/787.290568d9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.bf43b55d.css",
+    "static/css/main.62d43934.css",
     "static/js/main.e469482f.js"
   ]
 }
