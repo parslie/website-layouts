@@ -13,7 +13,7 @@ function IconButton({ Icon, onClick }) {
 
 function AlphaLayout() {
   return (
-    <div className="alpha red">
+    <div className="alpha">
       <header>
         <div className="left"></div>
         <h1>Layout α</h1>
