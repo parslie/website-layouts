@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/layouts/static/css/main.bf43b55d.css",
+    "main.js": "/layouts/static/js/main.4c0e82c1.js",
+    "static/js/787.290568d9.chunk.js": "/layouts/static/js/787.290568d9.chunk.js",
+    "static/media/johnsmith.jpg": "/layouts/static/media/johnsmith.d1840fb4755859e9dbe0.jpg",
+    "index.html": "/layouts/index.html",
+    "main.bf43b55d.css.map": "/layouts/static/css/main.bf43b55d.css.map",
+    "main.4c0e82c1.js.map": "/layouts/static/js/main.4c0e82c1.js.map",
+    "787.290568d9.chunk.js.map": "/layouts/static/js/787.290568d9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bf43b55d.css",
+    "static/js/main.4c0e82c1.js"
+  ]
+}
