@@ -23,7 +23,7 @@ function BetaLayout() {
       </main>
 
       <footer>
-        <p>Parslie © 2022 | <a href="mailto:viktor.holta@outlook.com">viktor.holta@outlook.com</a></p>
+        <h5>Parslie © 2022 | <a href="mailto:viktor.holta@outlook.com">viktor.holta@outlook.com</a></h5>
       </footer>
     </div>
   );
