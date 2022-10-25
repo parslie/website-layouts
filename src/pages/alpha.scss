@@ -1,120 +1,39 @@
-$small-pad: 0.8rem;
+//////////
+// Layout
+
+$small-pad: 0.2rem;
+$medium-pad: 0.8rem;
 $large-pad: 1.6rem;
-$accent-col: #2196f3;
-$dark-accent-col: #1565c0;
-$border-col: #aaaaaa;
-$app-bg-col: #eeeeee;
 
 @mixin left-layout {
   grid-template-columns: 1fr max-content;
-
-  & > aside {
-    grid-column: 2;
-    grid-row: 1;
-  }
-
-  & > main {
-    grid-column: 1;
-    grid-row: 1;
-    border-width: 0 1px 1px 0;
-  }
-
-  & > footer {
-    grid-column: 1;
-    grid-row: 2;
-    padding-right: $small-pad;
-  }
+  & > aside { grid-column: 2; }
+  & > main { grid-column: 1; border-width: 0 1px 1px 0; }
+  & > footer { grid-column: 1; padding-right: $medium-pad; }
 }
 
 @mixin right-layout {
   grid-template-columns: max-content 1fr;
-
-  & > aside {
-    grid-column: 1;
-    grid-row: 1;
-  }
-
-  & > main {
-    grid-column: 2;
-    grid-row: 1;
-    border-width: 0 0 1px 1px;
-  }
-
-  & > footer {
-    grid-column: 2;
-    grid-row: 2;
-    padding-left: $small-pad;
-  }
+  & > aside { grid-column: 1; }
+  & > main { grid-column: 2; border-width: 0 0 1px 1px; }
+  & > footer { grid-column: 2; padding-left: $medium-pad; }
 }
 
-@mixin aside-elements {
-  a {
-    display: block;
-    margin: 0.2rem 0;
-  }
-}
-
-@mixin general-elements {
-  a {
-    color: $accent-col;
-    text-decoration: none;
-
-    &:hover { text-decoration: underline; }
-    &:visited { color: $dark-accent-col; }
-  }
-}
-
-@mixin main-elements {
-  article {
-    margin: $large-pad 0;
-  }
-
-  h2 {
-    padding-bottom: 0.2rem;
-    border-bottom: 1px solid $border-col;
-  }
-
-  section {
-    border: 1px solid $border-col;
-    padding: $small-pad;
-    background-color: $app-bg-col;
-  }
-
-  .contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
-    gap: $small-pad;
-
-    section {
-      display: flex;
-      flex-direction: row;
-      gap: $small-pad;
-      overflow-wrap: anywhere;
-
-      img { width: 8rem; }
-      .name, .email { margin: 0; }
-    }
-  }
-}
-
-.alpha {
+@mixin layout($side: left) {
   display: grid;
   grid-template-rows: max-content 1fr;
-  &.left { @include left-layout; }
-  &.right { @include right-layout; }
-
   min-height: 100%;
-  background-color: $app-bg-col;
 
   *:first-child { margin-top: 0 !important; }
   *:last-child { margin-bottom: 0 !important; }
 
-  @include general-elements;
-
   & > aside {
+    grid-row: 1;
+
     .header {
-      margin: 0;
+      margin: 0; // Since it's a heading
       padding: $large-pad $large-pad 0;
+      text-align: center;
     }
 
     .sticky {
@@ -122,21 +41,185 @@ $app-bg-col: #eeeeee;
       top: 0;
       padding: $large-pad;
     }
+    
+    a {
+      display: block;
+      margin: $small-pad 0;
+    }
 
-    @include aside-elements;
+    hr {
+      margin: $medium-pad 0;
+      border-bottom-width: 1px;
+    }
+
+    select {
+      display: block;
+      margin: $small-pad 0;
+      border-width: 1px;
+      padding: 0.1rem;
+      width: 100%;
+    }
   }
 
   & > main {
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    gap: $large-pad;
     padding: $large-pad;
 
-    border-style: solid;
-    border-color: $border-col;
-    background-color: #ffffff;
+    h2 {
+      border-bottom-width: 1px;
+      padding-bottom: 0.2rem;
+    }
 
-    @include main-elements;
+    section {
+      border-width: 1px;
+      padding: $medium-pad;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(22rem, 1fr));
+      gap: $medium-pad;
+  
+      section {
+        display: flex;
+        flex-direction: row;
+        gap: $medium-pad;
+        overflow-wrap: anywhere;
+  
+        img { width: 8rem; }
+        .name, .email { margin: 0; }
+      }
+    }
   }
 
   & > footer {
+    grid-row: 2;
     padding: $large-pad;
   }
+  
+  @if $side == left {
+    @include left-layout;
+  } @else if $side == right {
+    @include right-layout;
+  }
+}
+
+//////////
+// Theming
+
+@mixin light-theme {
+  $app-background: #eeeeee;
+  $app-foreground: #000000;
+  $main-background: #ffffff;
+  $main-foreground: #000000;
+  $border: #aaaaaa;
+  $accent: #2196f3;
+  $dark-accent: #1565c0;
+
+  background-color: $app-background;
+  color: $app-foreground;
+
+  & > aside {
+    hr {
+      border-color: $border;
+    }
+
+    select {
+      border-color: $border;
+      background-color: $main-background;
+      color: $main-foreground;
+    }
+  }
+
+  & > main {
+    border-color: $border;
+    background-color: $main-background;
+    color: $main-foreground;
+
+    h2 { border-color: $border; }
+
+    section {
+      border-color: $border;
+      background-color: $app-background;
+      color: $app-foreground;
+    }
+  }
+
+  a {
+    color: $accent;
+    &:visited { color: $dark-accent; }
+  }
+}
+
+@mixin dark-theme {
+  $app-background: #111111;
+  $app-foreground: #f9f9f9;
+  $main-background: #1f1f1f;
+  $main-foreground: #f9f9f9;
+  $border: #393939;
+  $accent: #2196f3;
+  $dark-accent: #1565c0;
+
+  background-color: $app-background;
+  color: $app-foreground;
+
+  & > aside {
+    hr {
+      border-color: $border;
+    }
+
+    select {
+      border-color: $border;
+      background-color: $main-background;
+      color: $main-foreground;
+    }
+  }
+
+  & > main {
+    border-color: $border;
+    background-color: $main-background;
+    color: $main-foreground;
+
+    h2 { border-color: $border; }
+
+    section {
+      border-color: $border;
+      background-color: $app-background;
+      color: $app-foreground;
+    }
+  }
+
+  a {
+    color: $accent;
+    &:visited { color: $dark-accent; }
+  }
+}
+
+@mixin theme($theme: light) {
+  * { border-style: solid; }
+
+  a {
+    text-decoration: none;
+    &:hover { text-decoration: underline; }
+  }
+
+  @if $theme == light {
+    @include light-theme;
+  } @else if $theme == dark {
+    @include dark-theme;
+  }
+}
+
+////////////////////////
+// Application of mixins
+
+.alpha {
+  &.left { @include layout(left); }
+  &.right { @include layout(right); }
+
+  &.light { @include theme(light); }
+  &.dark { @include theme(dark); }
 }
