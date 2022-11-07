@@ -33,7 +33,7 @@ function PageButton({ to, label }) {
   let location = useLocation();
 
   return (
-    <div className={location.pathname === to ? "menu-button selected" : "menu-button"} onClick={() => navigate(to)}>
+    <div className={location.pathname.startsWith(to) ? "menu-button selected" : "menu-button"} onClick={() => navigate(to)}>
       {label}
     </div>
   );
