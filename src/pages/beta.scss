@@ -1,0 +1,19 @@
+$small-size: 0.3rem; 
+$medium-size: 0.6rem; 
+$large-size: 1.2rem; 
+
+$app-bg: #ddd;
+$main-bg: #fff;
+$main-fg: #111; 
+
+.beta {
+  min-height: 100%;
+  background-color: $app-bg;
+
+  main {
+    padding: $large-size;
+
+    background-color: $main-bg;
+    color: $main-fg;
+  }
+}
