@@ -1,19 +1,94 @@
-$small-size: 0.3rem; 
-$medium-size: 0.6rem; 
-$large-size: 1.2rem; 
+$small-size: 0.4rem; 
+$medium-size: 0.8rem; 
+$large-size: 1.6rem;
+$huge-size: 3.2rem;
 
-$app-bg: #ddd;
-$main-bg: #fff;
-$main-fg: #111; 
+$background: #f9f9f9;
+$background-dark: #d9d9d9;
+$background-darker: #b9b9b9;
+$background-darkest: #999999;
+$foreground: #0a0a0a;
+$accent: #673ab7;
+
+$border-width: 1px;
 
 .beta {
+  *:first-child { margin-top: 0 !important; }
+  *:last-child { margin-bottom: 0 !important; }
+
+  padding: $huge-size;
   min-height: 100%;
-  background-color: $app-bg;
+  background-color: $background;
 
-  main {
+  > header {
+    padding-bottom: $huge-size;
+
+    color: $foreground;
+    text-align: center;
+    font-size: 2em;
+  }
+
+  > nav {
+    display: flex;
+    flex-direction: row;
+
+    .button-row {
+      display: flex;
+      flex-direction: row;
+      gap: $border-width;
+
+      border-width: 0 $border-width;
+      border-style: solid;
+      border-color: $foreground;
+      background-color: $foreground;
+    }
+
+    .empty-row {
+      flex-grow: 1;
+      border-bottom: $border-width solid $foreground;
+    }
+
+    button {
+      padding: $small-size $medium-size;
+      border-width: $border-width 0;
+      border-style: solid;
+      border-color: $foreground;
+      background-color: $background-dark;
+      color: $foreground;
+      font-weight: 100;
+      cursor: pointer;
+
+      &.selected {
+        border-bottom-color: $background;
+        background-color: $background;
+      }
+
+      &:hover {
+        border-bottom-color: $foreground;
+        background-color: $background-darker;
+      }
+
+      &:active {
+        border-bottom-color: $foreground;
+        background-color: $background-darkest;
+      }
+    }
+  }
+
+  > main {
+    display: flex;
+    flex-direction: column;
+    gap: $large-size;
+
     padding: $large-size;
+    border: $border-width solid $foreground;
+    border-top: 0;
 
-    background-color: $main-bg;
-    color: $main-fg;
+    background-color: $background;
+    color: $foreground;
+
+    p, h2 {
+      font-weight: 100;
+    }
   }
 }
